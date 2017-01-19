@@ -1,0 +1,20 @@
+DataBundle\Entity\Store:
+    type: entity
+    table: null
+    repositoryClass: DataBundle\Repository\StoreRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        address:
+            type: string
+            length: 255
+            unique: true
+    lifecycleCallbacks: {  }

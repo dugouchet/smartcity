@@ -1,0 +1,11 @@
+services:
+    sonata.admin.store:
+        class: DataBundle\Admin\StoreAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Store" }
+        arguments:
+            - ~
+            - DataBundle\Entity\Store
+            - ~
+        calls:
+            - [ setTranslationDomain, [StoreBundle]]
