@@ -1,7 +1,7 @@
 <?php
 
 namespace DataBundle\Entity;
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Store
  */

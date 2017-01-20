@@ -9,3 +9,12 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [StoreBundle]]
+#   sonata.admin.transaction:
+#        class: DataBundle\Admin\TransactionAdmin
+#        tags:
+#            - { name: sonata.admin, manager_type: mongodb, group: "Content", label: "Transaction" }
+#        arguments:
+#            - ~
+#            - DataBundle\Document\Transaction
+#            - ~
+                    

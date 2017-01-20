@@ -6,17 +6,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class StoreAdmin extends Admin
+class TransactionAdmin extends Admin
 {
 	// Fields to be shown on create/edit forms
 	protected function configureFormFields(FormMapper $formMapper)
 	{
 		$formMapper
 		->add('name', 'text', array('label' => 'name'))
-		->add('address', 'text', array('label' => 'address'))
-		->add('owner', 'entity', array(
-				'class' => 'UserBundle\Entity\User',
-		))
+		->add('price', 'text', array('label' => 'address'))
 		;
 	}
 
@@ -25,7 +22,7 @@ class StoreAdmin extends Admin
 	{
 		$datagridMapper
 		->add('name')
-		->add('address')
+		->add('price')
 		;
 	}
 
@@ -34,8 +31,7 @@ class StoreAdmin extends Admin
 	{
 		$listMapper
 		->addIdentifier('name')
-		->add('address')
-		->add('owner')
+		->add('price')
 		;
 	}
 }

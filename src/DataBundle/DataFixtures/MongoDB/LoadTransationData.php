@@ -1,5 +1,5 @@
 <?php
-namespace DataBundle\DataFixtures\ODM;
+namespace DataBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

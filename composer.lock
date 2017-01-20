@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "61a915a7e65b7a8d838765bd384414b5",
-    "content-hash": "175b04a37ed51b228d0c15594f1f0112",
+    "hash": "63945c1eed0a8a25d81fbd6f8eeceb33",
+    "content-hash": "23cfd756157c02610b0d64707798984d",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2577,6 +2577,73 @@
                 "sonata"
             ],
             "time": "2016-12-09 13:15:23"
+        },
+        {
+            "name": "sonata-project/doctrine-mongodb-admin-bundle",
+            "version": "3.0.0",
+            "target-dir": "Sonata/DoctrineMongoDBAdminBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataDoctrineMongoDBAdminBundle.git",
+                "reference": "5a8d8ef34d71f0809d143bcee6c6a5331476377f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineMongoDBAdminBundle/zipball/5a8d8ef34d71f0809d143bcee6c6a5331476377f",
+                "reference": "5a8d8ef34d71f0809d143bcee6c6a5331476377f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/mongodb-odm": "^1.0",
+                "doctrine/mongodb-odm-bundle": "^3.0",
+                "php": "^5.3",
+                "sonata-project/admin-bundle": "^3.1"
+            },
+            "provide": {
+                "sonata-project/admin-bundle-persistency-layer": "1.0.0"
+            },
+            "require-dev": {
+                "jmikola/geojson": "^1.0",
+                "symfony/phpunit-bridge": "^2.7 || ^3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\DoctrineMongoDBAdminBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kévin Dunglas",
+                    "email": "dunglas@gmail.com",
+                    "homepage": "http://dunglas.fr"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataDoctrineMongoDBAdminBundle/contributors"
+                }
+            ],
+            "description": "Symfony Sonata / Integrate Doctrine MongoDB ODM into the SonataAdminBundle",
+            "homepage": "http://sonata-project.org/bundles/admin",
+            "keywords": [
+                "Admin Generator",
+                "admin",
+                "bootstrap",
+                "generator",
+                "mongo",
+                "mongodb",
+                "sonata"
+            ],
+            "time": "2016-06-04 16:18:33"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
