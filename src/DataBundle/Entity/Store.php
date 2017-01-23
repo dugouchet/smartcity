@@ -1,7 +1,6 @@
 <?php
 
 namespace DataBundle\Entity;
-use Doctrine\ORM\Mapping as ORM;
 /**
  * Store
  */
@@ -21,12 +20,6 @@ class Store
      * @var string
      */
     private $address;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="stores")
-     * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
-     */
-    private $owner;
     
     /**
      * Get id
@@ -85,13 +78,6 @@ class Store
     {
         return $this->address;
     }
-	public function getOwner() {
-		return $this->owner;
-	}
-	public function setOwner($owner) {
-		$this->owner = $owner;
-		return $this;
-	}
 	
 }
 

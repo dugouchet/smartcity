@@ -2,8 +2,10 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@UserBundle/Resources/config/admin.yml" }
+#    - { resource: "@UserBundle/Resources/config/admin.yml" }
     - { resource: "@DataBundle/Resources/config/admin.yml" }
+#    - { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
+    
 doctrine_mongodb:
     connections:
         default:
@@ -11,7 +13,14 @@ doctrine_mongodb:
     default_database: test_database
     document_managers:
         default:
-            auto_mapping: true    
+            mappings:
+                ApplicationSonataUserBundle: ~
+                SonataUserBundle: ~
+                FOSUserBundle: ~
+            auto_mapping: true        
+sonata_user:
+    security_acl: true
+    manager_type: mongodb # can be orm or mongodb            
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -23,6 +32,23 @@ sonata_block:
         sonata.block.service.text: # used to if you plan to use Sonata user routes
         sonata.admin.block.search_result:
             contexts: [admin]
+parameters:
+    locale: fr
+    sonata.user.form.type.security_roles.class: Sonata\UserBundle\Form\Type\SecurityRolesType
+
+    sonata.user.profile.form.type.class:            Sonata\UserBundle\Form\Type\ProfileType
+    sonata.user.profile.form.handler.default.class: Sonata\UserBundle\Form\Handler\ProfileFormHandler
+
+    sonata.user.admin.user.class:              Application\Sonata\UserBundle\Admin\UserAdmin
+    sonata.user.admin.user.entity:             Application\Sonata\UserBundle\Document\User
+    sonata.user.admin.user.controller:         SonataAdminBundle:CRUD
+    sonata.user.admin.user.translation_domain: SonataUserBundle
+
+    sonata.user.admin.group.class:              Sonata\UserBundle\Admin\Entity\GroupAdmin
+    sonata.user.admin.group.controller:         SonataAdminBundle:CRUD
+    sonata.user.admin.group.translation_domain: %sonata.user.admin.user.translation_domain%
+
+    sonata.user.admin.groupname: sonata_user            
 sonata_admin:
     templates:
         # default global templates
@@ -33,15 +59,23 @@ sonata_admin:
         list:    SonataAdminBundle:CRUD:list.html.twig
         show:    SonataAdminBundle:CRUD:show.html.twig
         edit:    SonataAdminBundle:CRUD:edit.html.twig              
+
 fos_user:
-    db_driver:     orm                                   # Le type de BDD � utiliser, nous utilisons l'ORM Doctrine depuis le d�but
-    firewall_name: main                                  # Le nom du firewall derri�re lequel on utilisera ces utilisateurs
-    user_class:    UserBundle\Entity\User       # La classe de l'entit� User que nous utilisons
-            
+    db_driver:      mongodb # can be orm or odm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Document\User
+
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Document\Group
+        group_manager: sonata.user.mongodb.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+
+    service:
+        user_manager: sonata.user.mongodb.user_manager            
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
-parameters:
-    locale: fr
+#parameters:
+#    locale: fr
 
 framework:
     #esi:             ~
@@ -77,6 +111,8 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
         driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"

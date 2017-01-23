@@ -13,13 +13,6 @@ class LoadStoreData implements FixtureInterface
 		$storeAdmin = new Store();
 		$storeAdmin->setName('H&M');
 		$storeAdmin->setAddress('rue lamartine');
-		
-		$userAdmin = new User();
-		$userAdmin->setUsername('louis');
-		$userAdmin->setPassword('louis');
-		$userAdmin->setEmail('louis@gmail.com');
-		
-		$storeAdmin->setOwner($userAdmin);
 
 		$manager->persist($storeAdmin);
 		$manager->flush();

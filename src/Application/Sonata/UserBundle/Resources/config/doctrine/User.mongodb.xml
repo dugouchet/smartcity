@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                    http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <document name="Application\Sonata\UserBundle\Document\User" collection="fos_user_user" customId="true">
+
+        <field fieldName="id" id="true" strategy="INCREMENT" />
+        <field name="username" fieldName="username" type="string" />
+        <field name="usernameCanonical" fieldName="usernameCanonical" type="string" />
+        <field name="email" fieldName="email" type="string" />
+        <field name="emailCanonical" fieldName="emailCanonical" type="string" />
+        <field name="enabled" fieldName="enabled" type="boolean" />
+        <field name="salt" fieldName="salt" type="string" />
+        <field name="password" fieldName="password" type="string" />
+        <field name="lastLogin" fieldName="lastLogin" type="date" />
+        <field name="locked" fieldName="locked" type="boolean" />
+        <field name="expired" fieldName="expired" type="boolean" />
+        <field name="expiresAt" fieldName="expiresAt" type="date" />
+        <field name="confirmationToken" fieldName="confirmationToken" type="string" />
+        <field name="passwordRequestedAt" fieldName="passwordRequestedAt" type="date" />
+        <field name="roles" fieldName="roles" type="hash" />
+        <indexes>
+            <index unique="true" dropDups="true">
+                <key name="usernameCanonical" order="asc" />
+                <option name="safe" value="true" />
+            </index>
+            <index unique="true" dropDups="true">
+                <key name="emailCanonical" order="asc" />
+                <option name="safe" value="true" />
+            </index>
+        </indexes>
+        
+        <field name="createdAt" type="date"/>
+        <field name="updatedAt" type="date"/>
+        <!-- Profile fields -->
+        <field name="dateOfBirth" type="date"/>
+        <field name="firstname" type="string"/>
+        <field name="lastname" type="string"/>
+        <field name="website" type="string"/>
+        <field name="biography" type="string"/>
+        <field name="gender" type="string"/>
+        <field name="locale" type="string"/>
+        <field name="timezone" type="string"/>
+        <field name="phone" type="string"/>
+        <!-- social fields -->
+        <field name="facebookUid" type="string"/>
+        <field name="facebookName" type="string"/>
+        <field name="facebookData" type="hash"/>
+        <field name="twitterUid" type="string"/>
+        <field name="twitterName" type="string"/>
+        <field name="twitterData" type="hash"/>
+        <field name="gplusUid" type="string"/>
+        <field name="gplusName" type="string"/>
+        <field name="gplusData" type="hash"/>
+        <!-- extra security fields -->
+        <field name="token" type="string"/>
+        <field name="twoStepVerificationCode" type="string"/>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="prePersist"/>
+            <lifecycle-callback type="preUpdate" method="preUpdate"/>
+        </lifecycle-callbacks>
+        
+        <field name="credentialsExpired" column="credentials_expired" type="boolean" />
+
+    </document>
+
+</doctrine-mongo-mapping>

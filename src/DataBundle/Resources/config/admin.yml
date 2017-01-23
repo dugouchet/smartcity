@@ -2,19 +2,19 @@ services:
     sonata.admin.store:
         class: DataBundle\Admin\StoreAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Store" }
+            - { name: sonata.admin, manager_type: orm, group: "ORM", label: "Store" }
         arguments:
             - ~
             - DataBundle\Entity\Store
             - ~
         calls:
             - [ setTranslationDomain, [StoreBundle]]
-#   sonata.admin.transaction:
-#        class: DataBundle\Admin\TransactionAdmin
-#        tags:
-#            - { name: sonata.admin, manager_type: mongodb, group: "Content", label: "Transaction" }
-#        arguments:
-#            - ~
-#            - DataBundle\Document\Transaction
-#            - ~
+    sonata.admin.transaction:
+        class: DataBundle\Admin\TransactionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: "MongoDB", label: "Transaction" }
+        arguments:
+            - ~
+            - DataBundle\Document\Transaction
+            - ~
                     

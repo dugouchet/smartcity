@@ -25,6 +25,7 @@ class Transaction
 
 	/**
 	 * @MongoDB\Field(type="float")
+	 * @MongoDB\Index(name="price_idx", unique=true, order="asc")
 	 */
 	protected $price;
 

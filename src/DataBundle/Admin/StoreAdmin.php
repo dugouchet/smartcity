@@ -14,9 +14,6 @@ class StoreAdmin extends Admin
 		$formMapper
 		->add('name', 'text', array('label' => 'name'))
 		->add('address', 'text', array('label' => 'address'))
-		->add('owner', 'entity', array(
-				'class' => 'UserBundle\Entity\User',
-		))
 		;
 	}
 
@@ -35,7 +32,6 @@ class StoreAdmin extends Admin
 		$listMapper
 		->addIdentifier('name')
 		->add('address')
-		->add('owner')
 		;
 	}
 }

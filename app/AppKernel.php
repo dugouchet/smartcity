@@ -17,8 +17,10 @@ class AppKernel extends Kernel
         	new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new CoreBundle\CoreBundle(),
-            new UserBundle\UserBundle(),
+            //new UserBundle\UserBundle(),
         	new FOS\UserBundle\FOSUserBundle(),
+        	new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+        	new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         	new FOS\ElasticaBundle\FOSElasticaBundle(),
         		// The admin requires some twig functions defined in the security
         		// bundle, like is_granted. Register this bundle if it wasn't the case
@@ -29,6 +31,7 @@ class AppKernel extends Kernel
         	new Sonata\CoreBundle\SonataCoreBundle(),
         	new Sonata\BlockBundle\SonataBlockBundle(),
         	new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        	new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
         		
         		// And finally, the storage and SonataAdminBundle
         	new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
