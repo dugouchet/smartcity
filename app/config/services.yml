@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
+#    survey.repository.container_aware:
 #        class: CoreBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+#survey.repository.container_aware:
+#    class: Demo\SurveyBundle\Repository\SurveyRepository
+#    arguments: [@service_container]

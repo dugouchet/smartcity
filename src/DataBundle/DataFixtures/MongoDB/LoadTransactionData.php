@@ -7,7 +7,7 @@ use UserBundle\Entity\User;
 use DataBundle\Entity\Store;
 use DataBundle\Document\Transaction;
 
-class LoadTransationData implements FixtureInterface
+class LoadTransactionData implements FixtureInterface
 {
 	public function load(ObjectManager $manager)
 	{

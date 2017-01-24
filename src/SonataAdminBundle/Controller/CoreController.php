@@ -10,6 +10,7 @@ class CoreController extends Controller
 {
 	public function searchAction(Request $request)
 	{
+		
 		if ($request->get('admin') && $request->isXmlHttpRequest()) {
 			try {
 				$admin = $this->getAdminPool()->getAdminByAdminCode($request->get('admin'));
