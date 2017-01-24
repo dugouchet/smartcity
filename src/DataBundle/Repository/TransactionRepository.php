@@ -3,6 +3,7 @@
 namespace DataBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * TransactionRepository
@@ -12,4 +13,10 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class TransactionRepository extends DocumentRepository
 {
+	
+	public function findTransaction(Request $request){
+		    $finder = $this->container->get('fos_elastica.finder.app.transaction');
+		    $transactions = $finder->find($request->get('q'));
+            return $transactions;
+		}
 }

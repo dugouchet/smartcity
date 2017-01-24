@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+  <h2>Result</h2>          
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transaction in transactions %}
+      <tr>
+        <td>{{ transaction.getName }}</td>
+        <td>{{ transaction.getPrice }}</td>
+      </tr>
+        {% endfor %}     
+    </tbody>
+  </table>
+</div>
+    </body>
+</html>

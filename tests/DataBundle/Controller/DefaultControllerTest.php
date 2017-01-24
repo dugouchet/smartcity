@@ -2,16 +2,20 @@
 
 namespace DataBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+#use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+	public function setUp(){
+			$fixtures = array(
+					'DataBundle\DataFixtures\MongoDB\LoadTransitionData'
+			);
+		
+			$this->loadFixtures($fixtures, null, 'doctrine_mongodb');
+		
+	}
+    public function testElasticsearch()
     {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/');
-
-        $this->assertContains('Hello World', $client->getResponse()->getContent());
     }
 }

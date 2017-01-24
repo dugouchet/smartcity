@@ -2,10 +2,12 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: fos_elastica.yml }
 #    - { resource: "@UserBundle/Resources/config/admin.yml" }
     - { resource: "@DataBundle/Resources/config/admin.yml" }
+    - { resource: "@SonataAdminBundle/Resources/config/services.yml" }
 #    - { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
-    
+                            
 doctrine_mongodb:
     connections:
         default:

@@ -11,11 +11,14 @@ class LoadTransationData implements FixtureInterface
 {
 	public function load(ObjectManager $manager)
 	{
-		$transactionAdmin = new Transaction();
-		$transactionAdmin->setName('Beer');
-		$transactionAdmin->setPrice('5');
+		for ($i = 1; $i <= 1000; $i++)
+		{
+			$transactionAdmin = new Transaction();
+			$transactionAdmin->setName('Beer'.$i);
+			$transactionAdmin->setPrice($i);
 
-		$manager->persist($transactionAdmin);
+			$manager->persist($transactionAdmin);
+		}	
 		$manager->flush();
 	}
 }

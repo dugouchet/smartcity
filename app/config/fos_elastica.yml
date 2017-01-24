@@ -1,0 +1,35 @@
+fos_elastica:
+    clients:
+        default: { host: %elastic_host%, port: %elastic_port% }
+    indexes:
+        search:
+            client: default
+        app:
+            types:
+                user:
+                    mappings:
+                        username: ~
+                        firstName: ~
+                        lastName: ~
+                        email: ~
+                    persistence:
+                        # the driver can be orm, mongodb, phpcr or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: mongodb
+                        model: Application\Sonata\UserBundle\Document\User
+                        provider: ~
+                        listener: ~
+                        finder: ~
+                transaction:
+                    mappings:
+                        price: ~
+                    persistence:
+                        # the driver can be orm, mongodb, phpcr or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: mongodb
+                        model: DataBundle\Document\Transaction
+                        provider: ~
+                        listener: ~
+                        finder: ~        
