@@ -35,7 +35,7 @@ sonata_block:
         sonata.admin.block.search_result:
             contexts: [admin]
 parameters:
-    locale: fr
+    locale: en
     sonata.user.form.type.security_roles.class: Sonata\UserBundle\Form\Type\SecurityRolesType
 
     sonata.user.profile.form.type.class:            Sonata\UserBundle\Form\Type\ProfileType
@@ -44,11 +44,11 @@ parameters:
     sonata.user.admin.user.class:              Application\Sonata\UserBundle\Admin\UserAdmin
     sonata.user.admin.user.entity:             Application\Sonata\UserBundle\Document\User
     sonata.user.admin.user.controller:         SonataAdminBundle:CRUD
-    sonata.user.admin.user.translation_domain: SonataUserBundle
+#    sonata.user.admin.user.translation_domain: SonataUserBundle
 
     sonata.user.admin.group.class:              Sonata\UserBundle\Admin\Entity\GroupAdmin
     sonata.user.admin.group.controller:         SonataAdminBundle:CRUD
-    sonata.user.admin.group.translation_domain: %sonata.user.admin.user.translation_domain%
+#    sonata.user.admin.group.translation_domain: %sonata.user.admin.user.translation_domain%
 
     sonata.user.admin.groupname: sonata_user            
 sonata_admin:
