@@ -2,8 +2,8 @@
 
 namespace DataBundle\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-#use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Liip\FunctionalTestBundle\Test\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+#use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use DataBundle\Entity\Store;
 use Doctrine\DBAL\Driver\PDOException;
@@ -95,9 +95,34 @@ class DefaultControllerTest extends WebTestCase
     	$validator = $this->get('validator');
     	$listErrors = $validator->validate($storeAdmin);
     	$this->assertCount(1, $listErrors);//One error on translation
+    }
+    
+    public function testContendsWord()
+    {
+    	$client = static::createClient();
+    
+    	$crawler = $client->request('GET', 'http://localhost/web/app_dev.php/admin/dashboard');
+    
+    	$this->assertGreaterThan(
+    			1,
+    			$crawler->filter('html:contains("ORM")')->count()
+    			);
+    }
+    
+    public function testContendsWord()
+    {
+    	$client = static::createClient();
+    
+    	$crawler = $client->request('GET', 'http://localhost/web/app_dev.php/admin/dashboard');
+    
+    	$form = $crawler->selectButton('submit')->form();
     	
+    	// set some values
+    	$form['q'] = '25';
+    	$form['form_name[subject]'] = 'Hey there!';
     	
-    	
+    	// submit the form
+    	$crawler = $client->submit($form);
     }
     
     protected function tearDown()

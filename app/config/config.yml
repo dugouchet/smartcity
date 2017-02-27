@@ -6,6 +6,7 @@ imports:
 #    - { resource: "@UserBundle/Resources/config/admin.yml" }
     - { resource: "@DataBundle/Resources/config/admin.yml" }
     - { resource: "@SonataAdminBundle/Resources/config/services.yml" }
+    - { resource: "@MapsBundle/Resources/config/services.yml" }
 #    - { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
                             
 doctrine_mongodb:

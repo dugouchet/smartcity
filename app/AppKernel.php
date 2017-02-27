@@ -39,6 +39,7 @@ class AppKernel extends Kernel
         	new Sonata\AdminBundle\SonataAdminBundle(),
             new DataBundle\DataBundle(),
             new SonataAdminBundle\SmartCitySonataAdminBundle(),
+            new MapsBundle\MapsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
